@@ -49,7 +49,7 @@ jobs:
         IFS=',' read -r -a deparray <<< "$GIT_DEPENDENCIES"; for d in ${deparray[@]}; do
           dep=$d
           if ! echo ${dep} | grep -q '/'; then
-            dep=${{ github.repository_owner }}/${dep}
+            dep=tihmstar/${dep}
           fi
           echo "Got dependency: ${dep}"
           tag=$(get_latest_release ${dep});
